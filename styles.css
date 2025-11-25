@@ -1,0 +1,108 @@
+
+
+/* ========================================================= */
+/* 1. CONFIGURACIÓN BASE, TIPOGRAFÍA Y CENTRADO */
+/* ========================================================= */
+
+body {
+    /* NOTA: Confirma que la ruta de tu imagen es correcta */
+    background: url('fondoaumsa.PNG') no-repeat center center fixed;
+    background-size: cover; 
+    margin: 0;
+    
+    /* * CLAVE: APLICACIÓN DE LA TIPOGRAFÍA ROBOTO */
+    font-family: 'Roboto', sans-serif;
+    
+    color: #333; /* Texto oscuro para el fondo aclarado */
+    text-align: center;
+    min-height: 100vh;
+    
+    /* Flexbox para centrar todo el contenido */
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; /* Centrado vertical */
+    align-items: center;     /* Centrado horizontal */
+}
+
+/* ========================================================= */
+/* 2. EFECTO DE ATENUACIÓN (FONDO ACLARADO CON TONO BLANCO) */
+/* ========================================================= */
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Capa blanca con 50% de opacidad para aclarar la imagen */
+    background-color: rgba(255, 255, 255, 0.5); 
+    z-index: -1; 
+}
+
+/* ========================================================= */
+/* 3. ESTILOS DEL MENÚ HORIZONTAL (SIN FONDO) */
+/* ========================================================= */
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0; 
+    display: flex;
+    justify-content: center;
+    
+    /* Fondo eliminado: Los botones flotan */
+    border-radius: 0; 
+    width: fit-content; 
+}
+
+.menu li {
+    margin: 0 10px;
+}
+
+/* ========================================================= */
+/* 4. ESTILOS DE LOS BOTONES CON EFECTO DE RELIEVE (GRANATE #792B3A) */
+/* ========================================================= */
+
+.button-3d {
+    text-decoration: none;
+    color: white; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.1s ease;
+
+    /* COLOR GRANATE BASE: #792B3A */
+    background-color: #792B3A; 
+    box-shadow: 0 5px 0 #63232F; 
+    transform: translateY(0);
+}
+
+/* Efecto al pasar el ratón (Hover) */
+.button-3d:hover {
+    background-color: #63232F; 
+    box-shadow: 0 4px 0 #63232F; 
+    transform: translateY(1px); 
+}
+
+/* Efecto al hacer clic (Active/Presionado) */
+.button-3d:active {
+    background-color: #8C3143; 
+    box-shadow: 0 0 0 #8C3143; 
+    transform: translateY(5px); 
+}
+
+/* ========================================================= */
+/* 5. ESTILOS DEL CONTENIDO PRINCIPAL */
+/* ========================================================= */
+
+.content {
+    width: 80%; 
+    padding: 20px; 
+    color: #333;
+    text-shadow: none; 
+}
