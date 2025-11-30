@@ -5,15 +5,16 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    /* OPCIONAL: Si quieres un fondo con imagen y opacidad como habíamos hablado */
+    /* Tipografía base ligeramente ajustada */
+    font-size: 0.9em; 
     background-image: url('fondoaumsa.PNG'); 
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Mantiene la imagen fija al desplazarse */
+    background-attachment: fixed;
     min-height: 100vh;
 }
 
-/* Oscurece o aclara el fondo para que el texto se lea mejor */
+/* Fondo semitransparente para legibilidad */
 body::before {
     content: "";
     position: fixed;
@@ -21,49 +22,83 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Ejemplo de capa de color semitransparente (opacidad 0.5) */
     background-color: rgba(255, 255, 255, 0.5); 
     z-index: -1;
 }
 
 /* -------------------------------------- */
-/* ESTILOS DEL CONTENIDO (TÍTULOS) */
+/* ESTILOS DE CABECERA CON LOGOS (NUEVA ESTRUCTURA) */
+/* -------------------------------------- */
+.page-header {
+    /* Contenedor principal: alinea todo al centro */
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.logo-bar {
+    /* Fila superior para los logos */
+    display: flex;
+    justify-content: space-between;
+    width: 90%; /* Ancho que ocupan los logos */
+    max-width: 900px; /* Ancho máximo para la barra de logos */
+    padding: 0 15px;
+    margin-bottom: 20px; /* Espacio entre logos y títulos */
+    box-sizing: border-box;
+}
+
+/* Estilos para las imágenes de los logos */
+.page-header img {
+    height: 75px; 
+    width: auto;
+    vertical-align: middle;
+}
+
+/* -------------------------------------- */
+/* ESTILOS DEL CONTENIDO (TÍTULOS) - MANTIENE EL TAMAÑO GRANDE ORIGINAL */
 /* -------------------------------------- */
 .content {
     text-align: center;
-    padding: 50px 20px 20px;
+    padding: 0 20px;
     color: #333;
+    /* Resetear márgenes y ancho que había en la estructura anterior */
+    margin: 0; 
+    max-width: none; 
 }
 
 .content h1 {
     font-weight: 700;
-    font-size: 2.5em;
+    /* TAMAÑO GRANDE ORIGINAL */
+    font-size: 2.5em; 
     margin-bottom: 10px;
 }
 
 .content p {
+    /* TAMAÑO GRANDE ORIGINAL */
     font-size: 1.2em;
-    margin-bottom: 40px;
+    margin: 5px 0 0;
 }
 
 /* -------------------------------------- */
 /* ESTILOS DEL MENÚ Y LISTA */
 /* -------------------------------------- */
 .menu {
-    text-align: center; /* Centra el elemento ul dentro del nav */
+    text-align: center; 
+    padding: 0 15px; 
 }
 
 .menu ul {
     list-style: none;
     padding: 0;
-    margin: 0 auto; /* Centra la lista <ul> */
-    width: 90%; /* Limita el ancho para que se vea como un bloque */
-    max-width: 400px; /* Ancho máximo para el bloque de botones */
+    margin: 40px auto 0; 
+    width: 90%;
+    max-width: 400px;
 }
 
 .menu li {
-    margin-bottom: 20px; /* Espacio entre los botones */
-    /* text-align: left; <-- ESTA LÍNEA ES INNECESARIA AHORA */
+    margin-bottom: 15px; 
 }
 
 /* -------------------------------------- */
@@ -73,69 +108,64 @@ body::before {
     display: block; 
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.1em;
+    font-size: 1.0em; 
     color: white;
-    
-    /* Color principal: #832c3c */
     background-color: #832c3c; 
-    
-    padding: 15px 25px;
-    border-radius: 8px;
-    
-    /* CAMBIO CLAVE: Centra el texto dentro del botón */
+    padding: 12px 20px; 
+    border-radius: 6px; 
     text-align: center; 
-    
-    /* Efecto 3D: Sombra un poco más oscura */
-    box-shadow: 0 5px 0 #5e202b; 
+    box-shadow: 0 4px 0 #5e202b; 
     position: relative;
     top: 0;
     transition: all 0.1s ease;
 }
 
 .button-3d:active {
-    /* Efecto de "clic" o "presión" */
-    top: 5px;
+    top: 4px;
     box-shadow: 0 0 0 #5e202b; 
 }
 
 /* -------------------------------------- */
-/* ESTILOS PARA EL ÚLTIMO BOTÓN CENTRADO (Ya no es necesario centrarlo aquí,
-   pero mantenemos la separación y el 'inline-block') */
+/* ESTILOS PARA EL ÚLTIMO BOTÓN CENTRADO */
 /* -------------------------------------- */
 .last-button-container {
-    /* Separación del grupo superior */
-    margin-top: 50px; 
-    /* text-align: center; <-- ESTA LÍNEA AHORA ES REDUNDANTE, PERO NO HACE DAÑO */
+    margin-top: 40px; 
 }
 
-/* Asegura que el botón dentro del contenedor centrado se muestre correctamente */
 .last-button-container .button-3d {
-    display: inline-block; /* Sigue siendo importante para que el <li> sea más pequeño */
+    display: inline-block; 
     width: auto; 
     min-width: 250px; 
 }
+
 /* -------------------------------------- */
-/* AJUSTES ESPECÍFICOS PARA DISPOSITIVOS MÓVILES (Media Query) */
+/* MEDIA QUERY para móviles */
 /* -------------------------------------- */
 @media (max-width: 600px) {
     
-    /* Hace el título H1 más pequeño en pantallas pequeñas */
+    .logo-bar {
+        /* Permite que los logos se separen un poco más en móvil */
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .page-header img {
+        height: 40px; /* Logos más pequeños en móvil */
+    }
+    
     .content h1 {
-        font-size: 1.8em; 
+        font-size: 1.8em; /* Ajuste para que no sea demasiado grande en móvil */
     }
     
-    /* Asegura que el contenedor de los botones se vea más natural en móvil */
-    .menu ul {
-        max-width: 95%; 
+    .content p {
+        font-size: 1.0em;
     }
-    
-    /* Reduce el padding para que los botones no se vean demasiado grandes */
+
     .button-3d {
         padding: 10px 15px; 
         font-size: 0.95em;
     }
 
-    /* Asegura que el botón inferior centrado mantenga su ancho en móviles */
     .last-button-container .button-3d {
         min-width: 80%;
     }

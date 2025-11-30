@@ -5,8 +5,8 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    /* CAMBIO CLAVE 1: Tipografía más pequeña (ej. 15px) */
-    font-size: 0.9em; /* Aproximadamente 14.4px si el navegador es 16px */
+    /* Tipografía base ligeramente ajustada */
+    font-size: 0.9em; 
     background-image: url('tu-imagen-de-fondo.jpg'); 
     background-size: cover;
     background-position: center;
@@ -14,7 +14,7 @@ body {
     min-height: 100vh;
 }
 
-/* Oscurece o aclara el fondo para que el texto se lea mejor */
+/* Fondo semitransparente para legibilidad */
 body::before {
     content: "";
     position: fixed;
@@ -27,36 +27,67 @@ body::before {
 }
 
 /* -------------------------------------- */
+/* --- CÓDIGO AÑADIDO: CABECERA Y LOGOS --- */
+/* -------------------------------------- */
+
+.page-header {
+    /* Contenedor principal: alinea todo al centro */
+    display: flex;
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.logo-bar {
+    /* Fila superior para los logos */
+    display: flex;
+    justify-content: space-between;
+    width: 90%; /* Ancho que ocupan los logos */
+    max-width: 900px; /* Ancho máximo para la barra de logos */
+    padding: 0 15px;
+    margin-bottom: 20px; /* Espacio entre logos y títulos */
+    box-sizing: border-box;
+}
+
+/* Estilos para las imágenes de los logos */
+.page-header img {
+    height: 65px; /* LOGOS MÁS GRANDES */
+    width: auto;
+    vertical-align: middle;
+}
+
+/* -------------------------------------- */
 /* ESTILOS DEL CONTENIDO (TÍTULOS) */
 /* -------------------------------------- */
 .content {
+    /* Este es el contenedor que aloja el <h1>Preguntas Frecuentes</h1> */
     text-align: center;
-    padding: 50px 20px 20px;
+    padding: 0 20px;
     color: #333;
-    /* CAMBIO CLAVE 2: Márgenes laterales para el contenido principal */
+    /* Las siguientes líneas se usaban para el índice, las mantenemos pero las ajustamos */
+    margin: 0 auto; 
     max-width: 900px;
-    margin: 0 auto;
 }
 
 .content h1 {
     font-weight: 700;
-    /* Ajuste de tamaño de fuente para el título */
-    font-size: 2.2em; 
+    /* Tamaño original grande, pero lo ajustamos para que quede bien en la FAQ */
+    font-size: 2.5em; 
     margin-bottom: 10px;
 }
 
+/* Estas reglas solo se aplican en la página de índice, no en la FAQ */
 .content p {
-    /* Ajuste de tamaño de fuente para el subtítulo */
-    font-size: 1.0em;
+    font-size: 1.2em;
     margin-bottom: 40px;
 }
 
 /* -------------------------------------- */
-/* ESTILOS DEL MENÚ Y LISTA */
+/* ESTILOS DEL MENÚ Y LISTA (Se mantienen para que el botón "Volver" se vea bien) */
 /* -------------------------------------- */
 .menu {
     text-align: center;
-    /* Asegura que el menú no se pegue a los lados */
     padding: 0 15px; 
 }
 
@@ -69,7 +100,7 @@ body::before {
 }
 
 .menu li {
-    margin-bottom: 15px; /* Ligeramente más pequeño el espacio entre botones */
+    margin-bottom: 15px;
 }
 
 /* -------------------------------------- */
@@ -79,14 +110,13 @@ body::before {
     display: block; 
     text-decoration: none;
     font-weight: 700;
-    /* Ajuste de tamaño de fuente para el texto del botón */
     font-size: 1.0em; 
     color: white;
     background-color: #832c3c; 
-    padding: 12px 20px; /* Padding ligeramente más pequeño */
-    border-radius: 6px; /* Borde ligeramente más pequeño */
+    padding: 12px 20px;
+    border-radius: 6px;
     text-align: center; 
-    box-shadow: 0 4px 0 #5e202b; /* Sombra ajustada */
+    box-shadow: 0 4px 0 #5e202b;
     position: relative;
     top: 0;
     transition: all 0.1s ease;
@@ -98,7 +128,7 @@ body::before {
 }
 
 /* -------------------------------------- */
-/* ESTILOS PARA EL ÚLTIMO BOTÓN CENTRADO */
+/* ESTILOS PARA EL ÚLTIMO BOTÓN CENTRADO (No afecta a la FAQ, pero se mantiene) */
 /* -------------------------------------- */
 .last-button-container {
     margin-top: 40px; 
@@ -114,7 +144,7 @@ body::before {
 /* ESTILOS ESPECÍFICOS PARA LA PÁGINA DE PREGUNTAS FRECUENTES (FAQ) */
 /* -------------------------------------- */
 .faq-container {
-    /* CAMBIO CLAVE 3: Máximo ancho y centrado para la página FAQ */
+    /* Máximo ancho y centrado para la página FAQ */
     max-width: 700px; 
     margin: 50px auto; 
     padding: 30px;
@@ -124,11 +154,9 @@ body::before {
     text-align: center; 
 }
 
+/* Redefinimos el título de la FAQ para que se vea bien dentro del contenedor blanco */
 .faq-container h1 {
-    /* Ajuste de tamaño de fuente para el título de la FAQ */
-    font-size: 2.0em; 
-    color: #333;
-    margin-bottom: 30px;
+    display: none; /* Ocultamos el título duplicado que está en el FAQ-container */
 }
 
 .faq-item {
@@ -138,7 +166,6 @@ body::before {
 
 .faq-question {
     font-weight: 700; 
-    /* Ajuste de tamaño de fuente para las preguntas */
     font-size: 1.1em; 
     margin-bottom: 8px;
     color: #832c3c; 
@@ -146,7 +173,6 @@ body::before {
 
 .faq-answer {
     font-weight: 400; 
-    /* Ajuste de tamaño de fuente para las respuestas */
     font-size: 0.95em; 
     line-height: 1.5; 
     color: #333; 
@@ -158,28 +184,31 @@ body::before {
     width: auto;
     min-width: 200px; 
 }
+
 /* -------------------------------------- */
 /* AJUSTES ESPECÍFICOS PARA DISPOSITIVOS MÓVILES (Media Query) */
 /* -------------------------------------- */
 @media (max-width: 600px) {
     
-    /* Hace el título H1 más pequeño en pantallas pequeñas */
+    /* Adaptación de la cabecera en móvil */
+    .logo-bar {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .page-header img {
+        height: 50px; /* Logos ajustados a un tamaño más pequeño en móvil */
+    }
+
     .content h1 {
-        font-size: 1.8em; 
+        font-size: 1.8em; /* Título más pequeño en móvil */
     }
     
-    /* Asegura que el contenedor de los botones se vea más natural en móvil */
-    .menu ul {
-        max-width: 95%; 
-    }
-    
-    /* Reduce el padding para que los botones no se vean demasiado grandes */
     .button-3d {
         padding: 10px 15px; 
         font-size: 0.95em;
     }
 
-    /* Asegura que el botón inferior centrado mantenga su ancho en móviles */
     .last-button-container .button-3d {
         min-width: 80%;
     }
