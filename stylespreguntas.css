@@ -5,11 +5,12 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    /* OPCIONAL: Si quieres un fondo con imagen y opacidad como habíamos hablado */
-    background-image: url('fondoaumsa.PNG'); 
+    /* CAMBIO CLAVE 1: Tipografía más pequeña (ej. 15px) */
+    font-size: 0.9em; /* Aproximadamente 14.4px si el navegador es 16px */
+    background-image: url('tu-imagen-de-fondo.jpg'); 
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Mantiene la imagen fija al desplazarse */
+    background-attachment: fixed;
     min-height: 100vh;
 }
 
@@ -21,7 +22,6 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Ejemplo de capa de color semitransparente (opacidad 0.5) */
     background-color: rgba(255, 255, 255, 0.5); 
     z-index: -1;
 }
@@ -33,16 +33,21 @@ body::before {
     text-align: center;
     padding: 50px 20px 20px;
     color: #333;
+    /* CAMBIO CLAVE 2: Márgenes laterales para el contenido principal */
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .content h1 {
     font-weight: 700;
-    font-size: 2.5em;
+    /* Ajuste de tamaño de fuente para el título */
+    font-size: 2.2em; 
     margin-bottom: 10px;
 }
 
 .content p {
-    font-size: 1.2em;
+    /* Ajuste de tamaño de fuente para el subtítulo */
+    font-size: 1.0em;
     margin-bottom: 40px;
 }
 
@@ -50,20 +55,21 @@ body::before {
 /* ESTILOS DEL MENÚ Y LISTA */
 /* -------------------------------------- */
 .menu {
-    text-align: center; /* Centra el elemento ul dentro del nav */
+    text-align: center;
+    /* Asegura que el menú no se pegue a los lados */
+    padding: 0 15px; 
 }
 
 .menu ul {
     list-style: none;
     padding: 0;
-    margin: 0 auto; /* Centra la lista <ul> */
-    width: 90%; /* Limita el ancho para que se vea como un bloque */
-    max-width: 400px; /* Ancho máximo para el bloque de botones */
+    margin: 0 auto;
+    width: 90%;
+    max-width: 400px;
 }
 
 .menu li {
-    margin-bottom: 20px; /* Espacio entre los botones */
-    /* text-align: left; <-- ESTA LÍNEA ES INNECESARIA AHORA */
+    margin-bottom: 15px; /* Ligeramente más pequeño el espacio entre botones */
 }
 
 /* -------------------------------------- */
@@ -73,46 +79,84 @@ body::before {
     display: block; 
     text-decoration: none;
     font-weight: 700;
-    font-size: 1.1em;
+    /* Ajuste de tamaño de fuente para el texto del botón */
+    font-size: 1.0em; 
     color: white;
-    
-    /* Color principal: #832c3c */
     background-color: #832c3c; 
-    
-    padding: 15px 25px;
-    border-radius: 8px;
-    
-    /* CAMBIO CLAVE: Centra el texto dentro del botón */
+    padding: 12px 20px; /* Padding ligeramente más pequeño */
+    border-radius: 6px; /* Borde ligeramente más pequeño */
     text-align: center; 
-    
-    /* Efecto 3D: Sombra un poco más oscura */
-    box-shadow: 0 5px 0 #5e202b; 
+    box-shadow: 0 4px 0 #5e202b; /* Sombra ajustada */
     position: relative;
     top: 0;
     transition: all 0.1s ease;
 }
 
 .button-3d:active {
-    /* Efecto de "clic" o "presión" */
-    top: 5px;
+    top: 4px;
     box-shadow: 0 0 0 #5e202b; 
 }
 
 /* -------------------------------------- */
-/* ESTILOS PARA EL ÚLTIMO BOTÓN CENTRADO (Ya no es necesario centrarlo aquí,
-   pero mantenemos la separación y el 'inline-block') */
+/* ESTILOS PARA EL ÚLTIMO BOTÓN CENTRADO */
 /* -------------------------------------- */
 .last-button-container {
-    /* Separación del grupo superior */
-    margin-top: 50px; 
-    /* text-align: center; <-- ESTA LÍNEA AHORA ES REDUNDANTE, PERO NO HACE DAÑO */
+    margin-top: 40px; 
 }
 
-/* Asegura que el botón dentro del contenedor centrado se muestre correctamente */
 .last-button-container .button-3d {
-    display: inline-block; /* Sigue siendo importante para que el <li> sea más pequeño */
+    display: inline-block; 
     width: auto; 
     min-width: 250px; 
+}
+
+/* -------------------------------------- */
+/* ESTILOS ESPECÍFICOS PARA LA PÁGINA DE PREGUNTAS FRECUENTES (FAQ) */
+/* -------------------------------------- */
+.faq-container {
+    /* CAMBIO CLAVE 3: Máximo ancho y centrado para la página FAQ */
+    max-width: 700px; 
+    margin: 50px auto; 
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+}
+
+.faq-container h1 {
+    /* Ajuste de tamaño de fuente para el título de la FAQ */
+    font-size: 2.0em; 
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    margin-bottom: 25px; 
+    text-align: left; 
+}
+
+.faq-question {
+    font-weight: 700; 
+    /* Ajuste de tamaño de fuente para las preguntas */
+    font-size: 1.1em; 
+    margin-bottom: 8px;
+    color: #832c3c; 
+}
+
+.faq-answer {
+    font-weight: 400; 
+    /* Ajuste de tamaño de fuente para las respuestas */
+    font-size: 0.95em; 
+    line-height: 1.5; 
+    color: #333; 
+}
+
+.back-button {
+    margin-top: 30px; 
+    display: inline-block; 
+    width: auto;
+    min-width: 200px; 
 }
 /* -------------------------------------- */
 /* AJUSTES ESPECÍFICOS PARA DISPOSITIVOS MÓVILES (Media Query) */
